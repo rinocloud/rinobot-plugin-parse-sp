@@ -1,0 +1,6 @@
+data
+data/
+build/
+dist/
+spconv.egg-info/
+*.pyc
