@@ -1,5 +1,6 @@
 from numpy import *
 import sys
+import os
 
 DSet2DC1DIBlock = 120
 DataSetAbscissaRangeMember = -29838
@@ -23,10 +24,9 @@ def eof(fd):
         return False
 
 
-def loadfile(filename, verbose=False):
-    fd = open(filename, "rb")
-    fname = filename.split('/')[-1]
-    print("Converting %s" % fname)
+def loadfile(filepath, verbose=False):
+    fd = open(filepath, "rb")
+    fname = filepath.split('/')[-1]
 
     signature = fromfile(fd, dtype="<i1", count=4)
     signature = ''.join(map(chr, list(signature)))
@@ -108,17 +108,19 @@ def loadfile(filename, verbose=False):
     return xData, yData, xLabel, yLabel
 
 
-def convertFile(filename, verbose=False):
-    x, y, xL, yL = loadfile(filename, verbose)
+def convertFile(filepath, verbose=False):
+    x, y, xL, yL = loadfile(filepath, verbose)
 
     if x is not False:
-        fname = filename.split('.')[0]
-        savetxt(fname + '.txt', vstack((x, y)).T, fmt="%1.6lf")
+        filepath_without_ext = os.path.splitext(filepath)[0]
+        savetxt(filepath_without_ext + '.txt', vstack((x, y)).T, fmt="%1.6lf")
         return True
 
 def main():
-    filename = sys.argv[1]
-    convertFile(filename)
+    filepath = sys.argv[1]
+
+    print   ('converting %s' % filepath)
+    convertFile(filepath)
 
 if __name__ == "__main__":
     main()
