@@ -1,1 +1,1 @@
-main:index.py
+main: 'index.py'
