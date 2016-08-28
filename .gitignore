@@ -1,6 +1,2 @@
-data
-data/
-build/
-dist/
-spconv.egg-info/
-*.pyc
+.DS_Store
+npm-debug.log
