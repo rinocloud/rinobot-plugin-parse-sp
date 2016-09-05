@@ -4,9 +4,9 @@
   "name": "rinobot-plugin-parse-sp",
   "description": "Parses .sp files (numbers only)",
   "version": "1.0.2",
-  "repository": "https://github.com/rinocloud/rinobot-plugin-parse-sp.git",
   "author": "eoin murray",
   "license": "MIT",
+  "repository": "https://github.com/rinocloud/rinobot-plugin-parse-sp.git",
   "keywords": [
     "rinobot",
     "rinocloud"
