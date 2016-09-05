@@ -3,7 +3,7 @@
   "engine": "python3",
   "name": "rinobot-plugin-parse-sp",
   "description": "Parses .sp files (numbers only)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "eoin murray",
   "license": "MIT",
   "repository": "https://github.com/rinocloud/rinobot-plugin-parse-sp.git",
