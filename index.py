@@ -1,3 +1,4 @@
+import rinobot_plugin as bot
 from numpy import *
 import sys
 import os
@@ -108,19 +109,16 @@ def loadfile(filepath, verbose=False):
     return xData, yData, xLabel, yLabel
 
 
-def convertFile(filepath, verbose=False):
-    x, y, xL, yL = loadfile(filepath, verbose)
+def main():
+    filepath = bot.filepath()
+    x, y, xL, yL = loadfile(filepath, verbose=False)
+
+    outname = bot.no_extension() + '-sp-converted.txt'
+    outpath = bot.output_filepath(outname)
 
     if x is not False:
-        filepath_without_ext = os.path.splitext(filepath)[0]
-        savetxt(filepath_without_ext + '.txt', vstack((x, y)).T, fmt="%1.6lf")
-        return True
+        savetxt(outpath, vstack((x, y)).T, fmt="%1.6lf")
 
-def main():
-    filepath = sys.argv[1]
-
-    print   ('converting %s' % filepath)
-    convertFile(filepath)
 
 if __name__ == "__main__":
     main()
