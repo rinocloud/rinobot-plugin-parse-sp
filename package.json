@@ -6,6 +6,7 @@
   "version": "1.1.0",
   "author": "eoin murray",
   "license": "MIT",
+  "options": {},
   "scripts": {
     "postinstall": "pip install rinobot-plugin --upgrade"
   },
